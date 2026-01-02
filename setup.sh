@@ -1,78 +1,66 @@
 #!/bin/bash
-set -e
+set -e  # Exit on any error
 
-echo "FAIZ AI - Complete System Setup"
-echo "================================"
+echo "Setting up FAIZ AI development environment..."
 
-# Update system
+# Update package list
 sudo apt-get update -y
 
-# Install Python and essentials
-sudo apt-get install -y python3 python3-pip python3-venv curl
+# 1. Install System Dependencies
+echo "Installing system dependencies..."
+sudo apt-get install -y \
+    python3-pip \
+    python3-venv \
+    curl \
+    git \
+    pkg-config \
+    libssl-dev
 
-# Create virtual environment
+# 2. Install Python & Virtual Environment
+echo "Setting up Python virtual environment..."
 python3 -m venv venv
 source venv/bin/activate
 
-# Install dependencies
+# Install core Python packages
+echo "Installing Python packages..."
 pip install --upgrade pip
+pip install \
+    sentence-transformers \
+    fastapi \
+    uvicorn \
+    pydantic \
+    requests \
+    aiofiles \
+    python-magic \
+    pyyaml \
+    pytest \
+    pyspellchecker \
+    pyppeteer \
+    aioftp \
+    aiohttp \
+    bencodepy \
 
-# Use requirements.txt if it exists, otherwise fall back to manual install
-if [ -f "requirements.txt" ]; then
-    echo "📦 Installing from requirements.txt..."
-    pip install -r requirements.txt
-else
-    echo "⚠️ requirements.txt not found! Installing manually..."
-    pip install sentence-transformers==2.2.2 aiohttp==3.9.1 aioftp==0.21.3 \
-    pyspellchecker==0.7.2 pyyaml==6.0.1 numpy==1.24.3 bencodepy pyppeteer
-fi
+# 5. Install Node.js & npm (for headless browser agents)
+echo "Installing Node.js..."
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
-# Create config directory
-mkdir -p config
-
-# Only create config.yaml if it DOES NOT exist
-if [ ! -f "config/config.yaml" ]; then
-    echo "⚙️ Creating default config.yaml..."
-    cat > config/config.yaml << 'EOF'
+# 6. Create essential config file
+echo "Creating default configuration..."
+cat > /config/config.yaml << EOF
+# FAIZ AI Configuration
 core:
   model: "all-MiniLM-L6-v2"
   embedding_dim: 384
 
 search:
-  timeout: 45
-  max_results: 100
-  filetypes: ["pdf", "doc", "docx", "zip", "mp4", "mp3"]
-  protocols: ["http", "ftp", "ipfs", "torrent"]
+  timeout: 30
+  max_results: 50
 
 safety:
-  enable_verification: true
-  max_file_size_mb: 500
-  blocked_extensions: [".exe", ".bat", ".sh", ".dmg"]
-
-http:
-  user_agent: "Mozilla/5.0 (FAIZ-AI/1.0)"
-  rate_limit_delay: 1.0
-
-ftp:
-  public_servers:
-    - "ftp.freebsd.org"
-    - "speedtest.tele2.net"
-    - "ftp.ncbi.nlm.nih.gov"
-    - "mirrors.kernel.org"
+  enable_verification: false  # Phase 1
+  max_file_size_mb: 100
 EOF
-else
-    echo "✅ Existing config.yaml found. Keeping your custom settings."
-fi
 
-# Set Python path
-echo "export PYTHONPATH=\$PYTHONPATH:$(pwd)" >> ~/.bashrc
-
-echo ""
-echo "✅ FAIZ AI Setup Complete!"
-echo ""
-echo "To use:"
-echo "1. source venv/bin/activate"
-echo "2. python main.py"
-echo ""
-echo "Example:"
-echo "python main.py"
+echo "Setup complete."
+echo "To activate the environment, run: source venv/bin/activate"
