@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/mufaizz/FAIZ-AI/blob/main/LICENSE)
 
-FAIZ-AI is a high-performance, asynchronous CLI tool for searching and retrieving files across multiple protocols (HTTP, FTP, IPFS, Torrent) in parallel. It combines semantic search with vector embeddings to return highly relevant results, and includes multiple safety layers such as intent verification, extension filtering, and VirusTotal hash checks.
+FAIZ-AI is an asynchronous CLI tool for searching and retrieving files across multiple protocols (HTTP, FTP, IPFS, Torrent) in parallel. It combines semantic search with vector embeddings to rank candidate results.
 
 License: MIT — see the [LICENSE](./LICENSE) file for full terms.
 
@@ -10,8 +10,8 @@ License: MIT — see the [LICENSE](./LICENSE) file for full terms.
 - Multi-protocol simultaneous search (HTTP, FTP, IPFS, Torrent)
 - Semantic ranking using SentenceTransformer embeddings
 - Asynchronous, non-blocking architecture (asyncio + aiohttp)
-- Built-in safety: spell correction, intent verification, extension blocking, VirusTotal checks
-- CLI-first design for speed and automation
+- Built-in safety measures: spell correction, intent verification, extension blocking
+- CLI-first design for automation and scripting
 
 ---
 
@@ -35,14 +35,14 @@ License: MIT — see the [LICENSE](./LICENSE) file for full terms.
 ## Highlights
 - Multi-protocol aggregator: query HTTP (including Google dorking for file types), public FTP servers, IPFS gateways, and Torrent DHT-like discovery simultaneously.
 - Semantic intelligence: uses `sentence-transformers` (default model `all-MiniLM-L6-v2`) to embed queries and candidate results, ranking by semantic similarity rather than raw keyword matches.
-- Fast and concurrent: fully asynchronous with careful use of connection pools, rate-limiting and timeouts.
-- Safety-first: spell correction, malicious-intent filtering, extension blocking, and optional VirusTotal verification for file hashes.
+- Asynchronous design with connection pools, rate-limiting and timeouts to support concurrent operations.
+- Safety-focused: includes basic safeguards such as spell correction, intent filtering and extension blocking; these do not guarantee safety and should not be considered a replacement for careful review.
 
 ---
 
 ## Features
 - Multi-Protocol Search
-  - HTTP: advanced targeted searching (file types, dorks)
+  - HTTP: targeted searching (file types, dorks)
   - FTP: asynchronous scanning of public FTP servers (e.g., FreeBSD mirrors, kernel.org)
   - IPFS: search via public IPFS gateways
   - Torrent: DHT-style discovery for magnets and .torrent metadata
@@ -52,8 +52,7 @@ License: MIT — see the [LICENSE](./LICENSE) file for full terms.
   - Spell correction (pyspellchecker)
   - Intent verification to block malicious or unsafe queries
 - Safety Verifiers
-  - Extension filtering (block dangerous extensions like `.exe`, `.bat`, `.sh`)
-  - VirusTotal integration for validating file hashes (optional; requires API key)
+  - Extension filtering (recommend blocking dangerous extensions like `.exe`, `.bat`, `.sh`)
 - Output
   - Real-time logs during scanning
   - Final ranked results saved to `faiz_results.json`
@@ -66,7 +65,6 @@ License: MIT — see the [LICENSE](./LICENSE) file for full terms.
 - Python 3.8+
 - pip
 - Linux/Unix environment recommended for automated script
-- (Optional) VirusTotal API key if you want built-in VT checks
 
 ### Automated setup
 The repository includes a setup script that will install system packages, create a virtual environment, and install dependencies.
@@ -113,7 +111,6 @@ filetypes:
 
 safety:
   blocked_extensions: [".exe", ".bat", ".sh"]
-  virus_total_api_key: ""   # optional, set to enable VirusTotal checks
 
 ftp:
   public_servers:
@@ -147,7 +144,6 @@ What happens:
 - FAIZ-AI performs parallel searches across configured protocols.
 - Candidates are embedded and ranked by semantic similarity to your query.
 - Top results are printed and saved to `faiz_results.json`.
-- If VirusTotal is configured, file hashes will be checked and flagged.
 
 ---
 
@@ -156,8 +152,8 @@ What happens:
 FAIZ-AI is provided as an educational/personal project. Use responsibly and in accordance with applicable laws.
 
 - Do not use FAIZ-AI to retrieve copyrighted material unless you have permission.
-- The tool includes filters to block obviously malicious queries and dangerous file types, but protection is not guaranteed.
-- Virus checks via VirusTotal are optional and require an API key; they do not replace thorough security review.
+- The tool includes filters and safeguards, but protection is not guaranteed — review and verify results as appropriate.
+- The project does not provide guarantees about the safety or legality of retrieved files.
 
 ---
 
