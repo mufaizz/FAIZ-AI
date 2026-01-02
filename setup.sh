@@ -39,15 +39,17 @@ pip install \
     aioftp \
     aiohttp \
     bencodepy \
+    sentence-transformers
 
 # 5. Install Node.js & npm (for headless browser agents)
 echo "Installing Node.js..."
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs
+sudo apt-get install -y nsolid -y
 
 # 6. Create essential config file
 echo "Creating default configuration..."
-cat > /config/config.yaml << EOF
+cat > config/config.yaml << EOF
+cat > /workspaces/FAIZ-AI/config/config.yaml << 'EOF'
 # FAIZ AI Configuration
 core:
   model: "all-MiniLM-L6-v2"
@@ -56,6 +58,7 @@ core:
 search:
   timeout: 30
   max_results: 50
+  protocols: ["http", "ftp", "ipfs", "torrent"]
 
 safety:
   enable_verification: false  # Phase 1

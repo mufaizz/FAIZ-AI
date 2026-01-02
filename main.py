@@ -41,17 +41,17 @@ def save_results(query, results):
 async def main():
     clear_screen()
     
-    type_text(center_text("FAIZ AI"), 0.05)
-    type_text("\033[80CBy-Mufaiz", 0.05)
-    type_text("―" * 100, 0.005)
+    type_text(center_text("FAIZ AI"), 0.02)
+    type_text("\033[80CBy-Mufaiz", 0.02)
+    type_text("―" * 100, 0.002)
     
     type_text("\nEnter search query: ", 0.02, end="")
     query = input()
     
     clear_screen()
-    type_text(center_text("FAIZ AI"), 0.05)
-    type_text("\033[80CBy-Mufaiz", 0.05)
-    type_text("―" * 100, 0.05)
+    type_text(center_text("FAIZ AI"), 0.02)
+    type_text("\033[80CBy-Mufaiz", 0.02)
+    type_text("―" * 100, 0.02)
     
     type_text(f"\nSearching: {query}", 0.02)
     
