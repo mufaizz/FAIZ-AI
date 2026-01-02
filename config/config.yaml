@@ -1,0 +1,26 @@
+# FAIZ AI Configuration
+core:
+  model: "all-MiniLM-L6-v2"
+  embedding_dim: 384
+
+search:
+  timeout: 45
+  max_results: 100
+  filetypes: ["pdf", "doc", "docx", "zip", "mp4", "mp3"]
+  protocols: ["http", "ftp", "ipfs", "torrent"]
+
+safety:
+  enable_verification: true
+  max_file_size_mb: 500
+  blocked_extensions: [".exe", ".bat", ".sh", ".dmg"]
+
+http:
+  user_agent: "Mozilla/5.0 (FAIZ-AI/1.0)"
+  rate_limit_delay: 1.0
+
+ftp:
+  public_servers:
+    - "ftp.freebsd.org"
+    - "speedtest.tele2.net"
+    - "ftp.ncbi.nlm.nih.gov"
+    - "mirrors.kernel.org"
