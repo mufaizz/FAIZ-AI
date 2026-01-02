@@ -1,4 +1,4 @@
-# FAIZ-AI — > FAIZ-AI is an interactive CLI-based AI search engine.
+# FAIZ-AI — > It is an interactive CLI-based AI search engine.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/mufaizz/FAIZ-AI/blob/main/LICENSE)
 
@@ -115,6 +115,12 @@ python main.py
 <img width="759" height="274" alt="oie_39wRwc9y7N9y" src="https://github.com/user-attachments/assets/68c18fba-9b5c-4390-9ded-d87d37308b85" />
 
 
+What happens:
+- FAIZ-AI performs parallel searches across configured protocols.
+- Candidates are embedded and ranked by semantic similarity to your query.
+- Top results are printed and saved to `faiz_results.json`.
+
+
 ---
 
 ## Configuration
@@ -145,30 +151,6 @@ Adjust `config/config.yaml` to enable/disable protocols, change the model, or se
 
 ---
 
-## Usage
-
-Activate the virtual environment (if not already active):
-
-```bash
-source venv/bin/activate
-```
-
-Run the CLI:
-
-```bash
-python main.py
-```
-
-Enter a query at the prompt, for example:
-- `linux documentation pdf`
-- `ubuntu iso torrent`
-
-What happens:
-- FAIZ-AI performs parallel searches across configured protocols.
-- Candidates are embedded and ranked by semantic similarity to your query.
-- Top results are printed and saved to `faiz_results.json`.
-
----
 
 ## Safety & legal
 
