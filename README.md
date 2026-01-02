@@ -169,8 +169,6 @@ Contributions are welcome. Suggested workflow:
 3. Add tests where applicable.
 4. Open a pull request describing the change.
 
-Please keep changes focused and well-documented. If you want help drafting issues or breaking large features into tasks, open an issue describing your idea.
-
 ---
 
 ## License
