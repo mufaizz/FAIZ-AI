@@ -1,4 +1,4 @@
-# FAIZ-AI — Master-level Universal File Search & Retrieval Engine
+# FAIZ-AI — Search Bot
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/mufaizz/FAIZ-AI/blob/main/LICENSE)
 
