@@ -105,14 +105,11 @@ python main.py
 
 <img width="851" height="137" alt="oie_r5S7GejDZqfN" src="https://github.com/user-attachments/assets/f3893ddd-5b5c-472a-b200-c15af9ae7dae" />
 
-7. Running Interface:
+7. Final Interface:
 
 <img width="759" height="274" alt="oie_39wRwc9y7N9y" src="https://github.com/user-attachments/assets/569dbf06-9ac7-47af-b5a0-22f4b3b94062" />
 
 
-8. Final Results:
-
-<img width="759" height="274" alt="oie_39wRwc9y7N9y" src="https://github.com/user-attachments/assets/68c18fba-9b5c-4390-9ded-d87d37308b85" />
 
 
 What happens:
